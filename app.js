@@ -96,33 +96,82 @@ console.log(tesla);
 tesla.intro();
 
 // 
-class GithubProfile {
-    constructor(username, name, url){
-        this.username = username;
-        this.name = name;
-        this.url = url;
-    }
-    intro(){
-        console.log(`My name is ${this.name} and my username is @${this.username}  `)
+// class GithubProfile {
+//     constructor(username, name, url){
+//         this.username = username;
+//         this.name = name;
+//         this.url = url;
+//     }
+//     intro(){
+//         console.log(`My name is ${this.name} and my username is @${this.username}  `)
+//     }
+// }
+
+// fetch('https://api.github.com/users/SLBendak')
+// .then(response => {
+//     return response.json();
+
+// })
+// .then(data => {
+//     console.log(data);
+//     let githubURL = data.url;
+//     console.log(githubURL);
+//     let githubUsername = data.login;
+//     console.log(githubUsername);
+//     let githubName = data.name;
+//     console.log(githubName);
+
+//     let shane = new GithubProfile(githubUsername, githubName, githubURL);
+//     console.log(shane);
+
+//     shane.intro();
+// })
+
+// fetch('')
+// .then(response => {
+//     return response.json();
+
+// })
+// .then(data => {
+//     const lizz = new GithubProfile(githubUsername, githubName, gitURL)
+
+//     lizz.intro();
+// })
+
+
+
+let isMomHappy = false;
+
+// Promise
+// let willIGetNewPhone = new Promise(
+//     function (resolve, reject) {
+//         if (isMomHappy) {
+//             let phone = {
+//                 brand: 'Samsung',
+//                 color: 'black'
+//             };
+//             resolve(phone); // fulfilled
+//         } else {
+//             let reason = new Error('mom is not happy');
+//             reject(reason); // reject
+//         }
+
+//     }
+// );
+
+let willIGetNewPhone = new Promise(resolve, reject) => {
+    if (isMomHappy) {
+        const phone = {
+            brand: 'iphone',
+            color: 'blue'
+        }
+        resolve(phone);
+    } else {
+        reject('No phone');
     }
 }
 
-fetch('https://api.github.com/users/SLBendak')
-.then(response => {
-    return response.json();
-
-})
-.then(data => {
-    console.log(data);
-    let githubURL = data.url;
-    console.log(githubURL);
-    let githubUsername = data.login;
-    console.log(githubUsername);
-    let githubName = data.name;
-    console.log(githubName);
-
-    let shane = new GithubProfile(githubUsername, githubName, githubURL);
-    console.log(shane);
-
-    shane.intro();
-})
+// how to check results
+willIGetNewPhone.then(result => {
+    console.log(result);
+});
