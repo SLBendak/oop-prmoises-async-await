@@ -33,3 +33,37 @@ const convertible = {
 convertible.__proto__ = wagon;
 
 console.log(convertible);
+
+
+
+// Constructor Function
+
+function User(name) {
+    this.name = name;
+}
+// new is key function of this 
+let adam = new User('Adam');
+let pete = new User('Pete');
+
+console.log(adam.name);
+console.log(pete.name);
+
+function NBAPlayer(name, team, threePointShooter) {
+    this.name = name;
+    this.team = team;
+    this.threePointShooter = threePointShooter;
+}
+
+let steph = new NBAPlayer('Steph Curry', 'Warriors', true)
+console.log(steph);
+///////////////////////////////
+function Fruit(name, round, berry) {
+    this.name = name;
+    this.round = round;
+    this.berry = berry;
+}
+let orange = new Fruit('Orange', true, false)
+let blueberry = new Fruit('Blueberry', true, true)
+let banana = new Fruit('banana', false, false)
+console.log(orange);
+
