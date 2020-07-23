@@ -52,18 +52,77 @@ function NBAPlayer(name, team, threePointShooter) {
     this.name = name;
     this.team = team;
     this.threePointShooter = threePointShooter;
+    this.intro = function(){
+        console.log('hi my name is '+this.name);
+    }
+    
 }
 
 let steph = new NBAPlayer('Steph Curry', 'Warriors', true)
-console.log(steph);
+steph.intro();
 ///////////////////////////////
 function Fruit(name, round, berry) {
     this.name = name;
     this.round = round;
     this.berry = berry;
 }
-let orange = new Fruit('Orange', true, false)
-let blueberry = new Fruit('Blueberry', true, true)
-let banana = new Fruit('banana', false, false)
+let orange = new Fruit('Orange', true, false);
+let blueberry = new Fruit('Blueberry', true, true);
+let banana = new Fruit('banana', false, false);
 console.log(orange);
 
+//////////////////////////////////
+
+// Class
+
+class Car {
+    constructor(year, make, model, color){
+        this.year = year;
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    drive(){
+        console.log('Vroom');
+    }
+    intro() {
+        console.log('This car is a '+this.make+' '+this.model);
+    }
+}
+
+let tesla = new Car('2020', 'Tesla', 'Model S', 'red');
+console.log(tesla);
+tesla.intro();
+
+// 
+class GithubProfile {
+    constructor(username, name, url){
+        this.username = username;
+        this.name = name;
+        this.url = url;
+    }
+    intro(){
+        console.log(`My name is ${this.name} and my username is @${this.username}  `)
+    }
+}
+
+fetch('https://api.github.com/users/SLBendak')
+.then(response => {
+    return response.json();
+
+})
+.then(data => {
+    console.log(data);
+    let githubURL = data.url;
+    console.log(githubURL);
+    let githubUsername = data.login;
+    console.log(githubUsername);
+    let githubName = data.name;
+    console.log(githubName);
+
+    let shane = new GithubProfile(githubUsername, githubName, githubURL);
+    console.log(shane);
+
+    shane.intro();
+})
