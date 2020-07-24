@@ -95,17 +95,17 @@ let tesla = new Car('2020', 'Tesla', 'Model S', 'red');
 console.log(tesla);
 tesla.intro();
 
-// 
-// class GithubProfile {
-//     constructor(username, name, url){
-//         this.username = username;
-//         this.name = name;
-//         this.url = url;
-//     }
-//     intro(){
-//         console.log(`My name is ${this.name} and my username is @${this.username}  `)
-//     }
-// }
+///////////////////////////////////////////
+class GithubProfile {
+    constructor(username, name, url){
+        this.username = username;
+        this.name = name;
+        this.url = url;
+    }
+    intro(){
+        console.log(`My name is ${this.name} and my username is @${this.username}  `)
+    }
+}
 
 // fetch('https://api.github.com/users/SLBendak')
 // .then(response => {
@@ -127,7 +127,7 @@ tesla.intro();
 //     shane.intro();
 // })
 
-// fetch('')
+// fetch('https://api.github.com/users/Lizzwest')
 // .then(response => {
 //     return response.json();
 
@@ -140,38 +140,68 @@ tesla.intro();
 
 
 
-let isMomHappy = false;
+// let isMomHappy = false;
+// /////////////////////////////////////////////////////////
+// // Promise
+// // let willIGetNewPhone = new Promise(
+// //     function (resolve, reject) {
+// //         if (isMomHappy) {
+// //             let phone = {
+// //                 brand: 'Samsung',
+// //                 color: 'black'
+// //             };
+// //             resolve(phone); // fulfilled
+// //         } else {
+// //             let reason = new Error('mom is not happy');
+// //             reject(reason); // reject
+// //         }
 
-// Promise
-// let willIGetNewPhone = new Promise(
-//     function (resolve, reject) {
-//         if (isMomHappy) {
-//             let phone = {
-//                 brand: 'Samsung',
-//                 color: 'black'
-//             };
-//             resolve(phone); // fulfilled
-//         } else {
-//             let reason = new Error('mom is not happy');
-//             reject(reason); // reject
+// //     }
+// // );
+
+// let willIGetNewPhone = new Promise(resolve, reject => {
+//     if (isMomHappy) {
+//         const phone = {
+//             brand: 'iphone',
+//             color: 'blue'
 //         }
-
+//         resolve(phone);
+//     } else {
+//         reject('No phone');
 //     }
-// );
+// })
 
-let willIGetNewPhone = new Promise(resolve, reject) => {
-    if (isMomHappy) {
-        const phone = {
-            brand: 'iphone',
-            color: 'blue'
-        }
-        resolve(phone);
-    } else {
-        reject('No phone');
-    }
+// // how to check results
+// willIGetNewPhone.then(result => {
+//     console.log(result);
+// });
+//                          ASYNC FUNCTION
+async function printUsers() {
+    const shaneEndpoint = 'https://api.github.com/users/SLBendak';
+    const lizzEndpoint = 'https://api.github.com/users/Lizzwest';
+    let shane = await fetch(shaneEndpoint).then(response => response.json());
+    // console.log(shane);
+    let lizz = await fetch(lizzEndpoint).then(response => response.json());
+    console.log(shane);
+    console.log(lizz);
 }
+  printUsers();
 
-// how to check results
-willIGetNewPhone.then(result => {
-    console.log(result);
-});
+  // set up fetch await
+  // grab login name
+  //print login name
+  async function printFacebook() {
+      let facebookEndpoint = 'https://api.github.com/users/facebook';
+      let fb = await fetch(facebookEndpoint).then(response => response.json());
+      console.log(fb);
+      let login = fb.login;
+      console.log(login);
+      return login;
+  } 
+
+  printFacebook();
+
+
+// not usable outside async function
+//   let shane = await fetch(shaneEndpoint).then(response => response.json());
+//   console.log(shane);
